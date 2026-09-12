@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check:push": "npm run build",
     "start": "next start",
     "test": "vitest run tests/projects",
     "test:all": "vitest run",
