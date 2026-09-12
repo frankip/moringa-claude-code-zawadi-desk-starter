@@ -37,3 +37,11 @@ export function listProjects(): ProjectList {
 export function findProject(projectId: string): Project | undefined {
   return projects.find((project) => project.id === projectId);
 }
+
+export function findProjectOrThrow(projectId: string): Project {
+  const project = findProject(projectId);
+  if (!project) {
+    throw new Error(`Project ${projectId} was not found.`);
+  }
+  return project;
+}
