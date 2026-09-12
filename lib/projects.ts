@@ -41,8 +41,10 @@ export function findProject(projectId: string): Project | undefined {
   return projects.find((project) => project.id === projectId);
 }
 
-export function findProjectOrThrow(projectName: string): Project {
-  const project = projects.find(project => project.name.toLowerCase().includes(projectName.toLowerCase()))
-  if (project) return project;
-  throw new Error("No project with that name")
+export function findProjectOrThrow(projectId: string): Project {
+  const project = findProject(projectId);
+  if (!project) {
+    throw new Error(`Project ${projectId} was not found.`);
+  }
+  return project;
 }
